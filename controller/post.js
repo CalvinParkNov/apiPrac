@@ -14,14 +14,14 @@ const insertPost = async(req,res) => {
     const newPost= new Post(req.body);
     
    try{
+    if(newPost.nickname) {
+      res.status(401).send({ errorMessage: "중복된 닉네임입니다."})
+    }
     await newPost.save();
     return res.status(200).json({msg: "게시글이 생성되었습니다."})
    }catch(err){
     return res.status(400).json({err:err.message})
    }
-   
-   
-
 }
 
 module.exports = {getAllPost,createPostPage, insertPost}
