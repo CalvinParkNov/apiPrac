@@ -6,9 +6,10 @@ const connectDB = require("./db/connect");
 const post = require("./route/posts")
 
 app.get("/", (req, res) => {
-        res.send("Hello Wolrd")
+    res.send("Hello Wolrd")
 })
-// app.use("/posts", post);
+
+app.use("/apiPrac", post);
 
 
 
