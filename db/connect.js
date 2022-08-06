@@ -1,3 +1,4 @@
+//db 연결 setting
 const mongoose = require("mongoose");
 
 const connectDB = (url) => {
