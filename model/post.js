@@ -1,15 +1,14 @@
 //게시글에 대한 db
 const mongoose = require("mongoose");
-
 const postSchema = new mongoose.Schema({
-    postId :{
-        type: String,
-        required: true,
-        unique: true
-    },
+    // postId :{
+    //     type: String,
+    //     required: true,
+    //     unique: true
+    // },
     nickname:{
         type: String,
-        required: true,
+        required: [true, "닉네임은 필수 입니다."],
         unique: true
     },
     title:{
@@ -21,26 +20,27 @@ const postSchema = new mongoose.Schema({
         required: true
     }
 });
+// const post = new Post({
+//     nickname: this.post
+// });
 
-const Post = db.model("Post", postSchema);
+// let error = post.validateSync();
 
-const post = new Post();
-
-let error = post.validateSync();
-
-//nickname
-assert.equal(error.errors["nickname"].message,
-    "`nickname`은 필수입니다.");
-assert.ok(!error.errors["nickname"]);
-
-//title
-assert.equal(error.errors["title"].message,
-    "`title`은 필수입니다.");
-assert.ok(!error.errors["title"]);
-
-//content
-assert.equal(error.errors["content"].message,
-    "`content`은 필수입니다.");
-assert.ok(!error.errors["content"])  ;
+// // //nickname
+// assert.equal(error.errors["nickname"].message,
+//     "nickname은 필수입니다.");
 
 module.exports = mongoose.model("Posts", postSchema);
+
+
+// assert.ok(!error.errors["nickname"]);
+
+// //title
+// assert.equal(error.errors["title"].message,
+//     "`title`은 필수입니다.");
+// assert.ok(!error.errors["title"]);
+
+// //content
+// assert.equal(error.errors["content"].message,
+//     "`content`은 필수입니다.");
+// assert.ok(!error.errors["content"])  ;

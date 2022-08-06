@@ -6,12 +6,11 @@ const port = process.env.PORT || 3000;
 const connectDB = require("./db/connect"); 
 const post = require("./route/posts")
 
+app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Hello Wolrd")
 })
-
 app.use("/apiPrac", post);
-
 
 
 
