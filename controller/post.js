@@ -20,8 +20,6 @@ const insertPost = async(req,res) => {
     return res.status(400).json({err:err.message})
    }
    
-   
-
 }
 
 module.exports = {getAllPost,createPostPage, insertPost}
