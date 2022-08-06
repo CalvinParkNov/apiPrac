@@ -13,11 +13,11 @@ const postSchema = new mongoose.Schema({
     },
     title:{
         type: String,
-        required: true
+        required: [true, "title은 필수입니다."]
     },
     content:{
         type: String,
-        required: true
+        required: [true, "content는 필수입니다."]
     }
 });
 // const post = new Post({
